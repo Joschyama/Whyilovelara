@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">Catch my Heart 10 times</div>
+    <div id="heart" style="position: absolute;">❤️</div>
+    <div class="title" id="message" style="display: none; text-align: center; font-size: 2rem; margin-top: 20px;">
+        You caught my heart 10 times! ❤️ You're amazing!
+    </div>
+    <script>
+        const heart = document.getElementById('heart');
+        const message = document.getElementById('message');
+        let catchCount = 0;
+
+        function moveHeart() {
+            // Bewege das Herz an eine zufällige Position
+            heart.style.top = Math.random() * window.innerHeight + 'px';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+
+            // Erhöhe den Zähler
+            catchCount++;
+
+            // Überprüfe, ob das Herz 10 Mal gefangen wurde
+            if (catchCount === 10) {
+                heart.style.display = 'none'; // Verstecke das Herz
+                message.style.display = 'block'; // Zeige die Nachricht an
+                message2.style.display = 'block'; // Zeige die zweite Nachricht an
+            }
+        }
+
+        // Event-Listener für Maus und Touch
+        heart.addEventListener('mouseover', moveHeart); // Für Desktop
+        heart.addEventListener('touchstart', moveHeart); // Für Touchscreens
+    </script>
+    <div class="title" id="message2" style="display: none; text-align: center; font-size: 2rem; margin-top: 20px;">
+        Made with ❤️ by Yannis
+    </div>
+</body>
+</html>

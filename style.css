@@ -1,0 +1,160 @@
+html, body {
+    height: 100%; /* Ensure the html and body elements take up the full height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+body {
+    background: 
+        linear-gradient(to bottom, #fcc2a2, #fcaebd 50%), /* Gradient für oberen Teil */
+        #fcaebd; /* Untere Farbe */
+    background-size: cover; /* Deckt den gesamten Bildschirm gleichmäßig ab */
+    background-repeat: no-repeat; /* Verhindert Wiederholung des Hintergrunds */
+    height: 100%; /* Stellt sicher, dass der Hintergrund den gesamten Bildschirm abdeckt */
+}.title {
+    font-family: 'Quicksand', 'Comic Sans MS', Arial, sans-serif; /* Even rounder fonts */
+    font-size: 2.5rem; /* Adjust the size as needed */
+    color: #000000; /* A soft, warm color */
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Add some spacing from the top */
+}
+.titlebutton {
+    font-family: 'Quicksand', 'Comic Sans MS', Arial, sans-serif; /* Even rounder fonts */
+    font-size: 2.5rem; /* Adjust the size as needed */
+    color: #000000; /* A soft, warm color */
+    text-align: center; /* Center the text inside the button */
+    margin: 20px auto; /* Center the button horizontally and add spacing */
+    display: block; /* Make the button a block-level element */
+    padding: 10px 20px; /* Add some padding for better appearance */
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+.laraimage {
+    animation: fadeIn 2s ease-in-out; /* Bild blendet sich etwas langsamer ein */
+    width: 50%; /* Setzt die Breite auf 50% */
+    height: auto; /* Beibehaltung des Seitenverhältnisses */
+    display: block; /* Entfernt Inline-Abstände */
+    margin: 20px auto; /* Zentriert das Bild horizontal */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Startet unsichtbar */
+        transform: translateY(20px); /* Leicht nach unten verschoben */
+    }
+    to {
+        opacity: 1; /* Wird sichtbar */
+        transform: translateY(0); /* Bewegt sich an die ursprüngliche Position */
+    }
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Normale Größe */
+    }
+    50% {
+        transform: scale(1.2); /* Vergrößert */
+    }
+    100% {
+        transform: scale(1); /* Zurück zur normalen Größe */
+    }
+}
+@keyframes sparkle {
+    0% {
+        opacity: 0.8;
+        transform: scale(1) rotate(0deg); /* Normale Größe, keine Rotation */
+    }
+    25% {
+        opacity: 1;
+        transform: scale(1.1) rotate(10deg); /* Leicht vergrößert und gedreht */
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1) rotate(-10deg); /* Zurück zur normalen Größe, leicht gedreht */
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.1) rotate(5deg); /* Wieder leicht vergrößert */
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1) rotate(0deg); /* Zurück zur Ausgangsposition */
+    }
+}
+.title, .titlebutton {
+    animation: fadeIn 1.5s ease-in-out; /* Sanftes Einblenden */
+}
+.emoji {
+    font-size: 10rem; /* Größere Schriftgröße für Emoji */
+    text-align: center; /* Zentriert das Emoji */
+    margin-top: 20px; /* Abstand nach oben */
+    animation: fadeIn 1.5s ease-in-out; /* Sanftes Einblenden */
+}
+.emoji2 {
+    font-size: 10rem; /* Größe des Emojis */
+    text-align: center; /* Zentriert das Emoji */
+    display: block; /* Block-Level-Element */
+    margin: 20px auto; /* Zentriert das Emoji horizontal */
+    animation: fadeIn 1.5s ease-in-out, pulse 1.5s infinite; /* Kombiniert beide Animationen */
+}
+.emoji3 {
+    font-size: 10rem; /* Größe des Emojis */
+    text-align: center; /* Zentriert das Emoji */
+    display: block; /* Block-Level-Element */
+    margin: 20px auto; /* Zentriert das Emoji horizontal */
+    animation: fadeIn 1.5s ease-in-out, sparkle 2s infinite ease-in-out; /* Glitzern-Animation */
+}
+@keyframes laugh {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+.emoji4 {
+    font-size: 10rem; /* Größe des Emojis */
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    animation: fadeIn 1.5s ease-in-out, laugh 0.5s infinite ease-in-out; /* Wackel-Animation */
+}
+.answer {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+.emoji5 {
+    font-size: 10rem; /* Größe des Emojis */
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    animation: fadeIn 1.5s ease-in-out, laugh 2s infinite ease-in-out; /* Wackel-Animation */
+}
+.answer2 {
+    font-family: 'Quicksand', 'Comic Sans MS', Arial, sans-serif; /* Even rounder fonts */
+    font-size: 2rem; /* Schriftgröße */
+    text-align: center; /* Zentriert den Text */
+    margin-top: 20px; /* Abstand nach oben */
+    opacity: 0; /* Startet unsichtbar */
+    animation: fadeInSlow 8s ease-in-out forwards; /* Langsames Einfaden */
+}
+#heart {
+    position: absolute; /* Absolut positioniert */
+    font-size: 2rem; /* Größe des Herzens */
+    color: red; /* Herzfarbe */
+    animation: pulse 1.5s infinite; /* Langsames Einfaden und Pulsieren */
+}
+
+@keyframes fadeInSlow {
+    from {
+        opacity: 0; /* Unsichtbar */
+    }
+    to {
+        opacity: 1; /* Sichtbar */
+    }
+}
