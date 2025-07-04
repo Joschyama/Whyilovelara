@@ -1,19 +1,41 @@
 function next() {
-    // Hole die aktuelle URL
     const currentUrl = window.location.href;
 
-    // Extrahiere die aktuelle Zahl hinter "Reason"
-    const currentNumber = parseInt(currentUrl.match(/Reason(\d+)\.html/)[1]);
+    // Prüfe, ob du auf der index.html bist (oder auf der Startseite ohne Dateinamen)
+    if (currentUrl.endsWith('index.html') || currentUrl.endsWith('/')) {
+        window.location.href = 'Reason1.html';
+        return;
+    }
 
-    // Erhöhe die Zahl um 1
-    const nextNumber = currentNumber + 1;
-
-    // Erstelle die neue URL
-    const nextUrl = currentUrl.replace(`Reason${currentNumber}.html`, `Reason${nextNumber}.html`);
-
-    // Navigiere zur neuen Seite
-    window.location.href = nextUrl;
+    // Versuche, die aktuelle Reason-Nummer zu extrahieren
+    const match = currentUrl.match(/Reason(\d+)\.html/);
+    if (match) {
+        const currentNumber = parseInt(match[1]);
+        const nextNumber = currentNumber + 1;
+        const nextUrl = currentUrl.replace(`Reason${currentNumber}.html`, `Reason${nextNumber}.html`);
+        window.location.href = nextUrl;
+    }
 }
+function back() {
+    const currentUrl = window.location.href;
+
+    // Prüfe, ob du auf Reason1.html bist
+    if (currentUrl.endsWith('Reason1.html')) {
+        // Gehe zurück zur Startseite
+        window.location.href = 'index.html';
+        return;
+    }
+
+    // Versuche, die aktuelle Reason-Nummer zu extrahieren
+    const match = currentUrl.match(/Reason(\d+)\.html/);
+    if (match) {
+        const currentNumber = parseInt(match[1]);
+        const prevNumber = currentNumber - 1;
+        const prevUrl = currentUrl.replace(`Reason${currentNumber}.html`, `Reason${prevNumber}.html`);
+        window.location.href = prevUrl;
+    }
+}
+
 const heart = document.getElementById('heart');
 
 // Funktion, um das Herz an eine zufällige Position zu bewegen

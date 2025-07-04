@@ -30,8 +30,34 @@
                 heart.style.display = 'none'; // Verstecke das Herz
                 message.style.display = 'block'; // Zeige die Nachricht an
                 message2.style.display = 'block'; // Zeige die zweite Nachricht an
+                message3.style.display = 'block'; // Zeige die dritte Nachricht an
+                message4.style.display = 'block'; // Zeige den Restart-Button an
+                backb.style.display = 'block'; // Zeige den Restart-Button an
             }
         }
+        function Restart() {
+    //go to index.html
+    window.location.href = 'index.html';
+}
+    function back() {
+    const currentUrl = window.location.href;
+
+    // Prüfe, ob du auf Reason1.html bist
+    if (currentUrl.endsWith('Reason1.html')) {
+        // Gehe zurück zur Startseite
+        window.location.href = 'index.html';
+        return;
+    }
+
+    // Versuche, die aktuelle Reason-Nummer zu extrahieren
+    const match = currentUrl.match(/Reason(\d+)\.html/);
+    if (match) {
+        const currentNumber = parseInt(match[1]);
+        const prevNumber = currentNumber - 1;
+        const prevUrl = currentUrl.replace(`Reason${currentNumber}.html`, `Reason${prevNumber}.html`);
+        window.location.href = prevUrl;
+    }
+}
 
         // Event-Listener für Maus und Touch
         heart.addEventListener('mouseover', moveHeart); // Für Desktop
@@ -40,5 +66,10 @@
     <div class="title" id="message2" style="display: none; text-align: center; font-size: 2rem; margin-top: 20px;">
         Made with ❤️ by Yannis
     </div>
+        <div class="title" id="message3" style="display: none; text-align: center; font-size: 2rem; margin-top: 20px;">
+            Thank you for existing in my life ❤️
+    </div>
+    <button class="title" id="backb" style="display: none; text-align: center; font-size: 2rem; margin-top: 20px;" onclick="back()">BACK</button>
+    <button class="title" id="message4" style="display: none; text-align: center; font-size: 2rem; margin-top: 20px;" onclick="Restart()">RESTART</button>
 </body>
 </html>
